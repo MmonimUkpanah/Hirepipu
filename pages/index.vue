@@ -393,14 +393,15 @@
     margin-top: 0.5rem;
   }
   .lo4 input{
-    width: 57%;
+    width: 100%;
     height: 40px;
-    margin-right: 0.5rem;
+    margin-right: 0rem;
+    margin-bottom: 0.5rem;
     border: none;
     border-radius: 5px;
   }
   .lo4 button{
-    width: 40%;
+    width: 100%;
     height: 40px;
     border: none;
     border-radius: 5px;
