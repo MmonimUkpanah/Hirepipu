@@ -23,8 +23,8 @@
             </li>
           </ul>
           <form >
-            <span>Sign In</span>
-            <button class="btn btn-outline-primary" type="submit">Register</button>
+            <span><a href="/login">Log In</a></span>
+            <button class="btn btn-outline-primary" type="submit"><a href="/signup">Sign Up</a> </button>
           </form>
         </div>
       </div>
@@ -38,8 +38,8 @@
   display: inline !important;
 }
   .nav1{
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: 8%;
+    margin-right: 8%;
   }
   ul{
     margin-left: 25%;
@@ -47,6 +47,12 @@
   li a{
     color: #1B6AE3 !important;
     margin-left: 1rem;
+  }
+  button a{
+    color: white;
+  }
+  a{
+    text-decoration: none;
   }
   form{
     margin-left: auto;

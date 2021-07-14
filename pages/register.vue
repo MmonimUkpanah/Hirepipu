@@ -14,27 +14,40 @@
             </div>
             <div class="up3">
                 <div class="up31">
-                    <h1>Create An Account</h1>
+                    <h1>Register</h1>
                     <form action="" method="post">
-                        <label for="">Email</label>
-                        <input type="email" class="form-control" placeholder="johndoe@gmail.com">
-                        <label for="">Phone Number</label>
-                        <input type="text" class="form-control" placeholder="080********">
                         <div class="up321">
                             <div >
-                                <label for="">State</label>
-                                <input type="text" class="form-control" placeholder="Akwa Ibom State">
+                                <label for="">First Name*</label>
+                                <input type="text" class="form-control">
                             </div>
                             <div >
-                                <label for="">LGA</label>
-                                <input type="text" class="form-control" placeholder="Uyo">
+                                <label for="">Surname*</label>
+                                <input type="text" class="form-control">
                             </div>
                         </div>
-                        <label for="">Password</label>
-                        <input type="password" class="form-control" placeholder="********">
-                        <label for="">Confirm Password</label>
-                        <input type="password" class="form-control" placeholder="********">
-                        <nuxt-link to="register"><button class="btn btn-primary">Signup</button></nuxt-link>
+                        <label for="">Date of Birth</label>
+                        <input type="date" class="form-control">
+                        <div class="container-fluid">
+                            
+                        </div>
+                        <div class="down">
+                            <label for="">Gender</label>
+                            <div class="input-group">
+                                <select class="form-select form-control" id="inputGroupSelect04" aria-label="Example select with button addon">
+                                    <option selected>Choose...</option>
+                                    <option value="1">Male</option>
+                                    <option value="2">Female</option>
+                                    
+                                </select>
+                                
+                            </div>
+                        </div>
+                        <label for="">Location</label>
+                        <input type="text" class="form-control">
+                        <label for="">Profession</label>
+                        <input type="text" class="form-control">
+                        <button class="btn btn-primary">Register</button>
                     </form>
                 </div>
                 
@@ -75,6 +88,7 @@
         grid-template-columns: 1fr 1fr;
         grid-gap: 1rem;
     }
+    
     .up21{
         margin-top: 5rem;
         margin-bottom: 5rem;

@@ -1,327 +1,165 @@
 <template>
-    <div class="login-1">
+    <div>
+        <Navbar/>
+         <div class="up">
         
-        
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-6 login-3">
-                    
+        <div class="up1">
+            <div class="up2">
+                <div class="up21">
+                    <img src="/img/hpp.svg" alt="logo" srcset=""/>
+                    <h1>Hirepipu</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima voluptatum nisi omnis ut ipsam alias quasi excepturi, magni provident eos!</p>
                 </div>
-                <div class="col-md-6">
-                    <ValidationObserver v-slot="{ invalid }">
-                        <form @submit.prevent="signUp">
-                        
-                        <div class="login-2">
-                            <h2>Login</h2>
-                            
-                        <div class="grid">
-                            
-                        
-                        
-                        
-                        
-                        <div class="form-group">
-                            <label>Your Email Address*</label>
-                            <ValidationProvider
-                                v-slot="{ errors }"
-                                name="email"
-                                rules="required|email">
-                            <input type="email" class="form-control" @keydown.space.prevent 
-                            v-model="signup.email" required>
-                            <span class="input-invalid-message">
-                                {{ errors[0] }}
-                            </span>
-                            </ValidationProvider>
-                        </div>
-                        
-                        
-                        
-                        
-                        <div class="form-group">
-                            <label>Your password*</label>
-                            <ValidationProvider rules="min:8|required" v-slot="{ errors }" vid="signup.password" name="password">
-                            <input type="password" class="form-control" @keydown.space.prevent v-model="signup.password">
-                            <span>{{ errors[0] }}</span>
-                            </ValidationProvider>
-                        </div>
-                        
-                        </div>
-                        
-                       <!-- <div>
-                           <p>By clicking Create Account, you agree to ForexHup's<a href="/terms"> Terms and Conditions</a></p>
-                       </div> -->
-                       
-                        <button type="submit" :disabled="invalid" class="login">Login</button>
                 
-                        </div>
-                        
+            </div>
+            <div class="up3">
+                <div class="up31">
+                    <h1>Login</h1>
+                    <form action="" method="post">
+                        <label for="">Email</label>
+                        <input type="email" class="form-control">
+                        <label for="">Password</label>
+                        <input type="password" class="form-control">
+                        <button class="btn btn-primary">Login</button>
                     </form>
-                    </ValidationObserver>
-                    
-                    
                 </div>
+                
             </div>
         </div>
+    </div> 
+        <footer-sections/>
     </div>
+    
 </template>
-
-
-
-<script>
-import { ValidationObserver, ValidationProvider } from "vee-validate";
-import ElementUI from 'element-ui';
-import 'element-ui/lib/theme-chalk/index.css';
-export default {
-    auth: false,
-    components: {
-    ValidationObserver: ValidationObserver,
-    ValidationProvider: ValidationProvider
-  },
-    data(){
-        return{
-            signup: {
-                username:'',
-                email: '',
-                password: '',
-                password2: ''
-            }
-            
-        }
-    },
-    mounted(){
-    
-    },
-    methods: {
-    // async signUp() {
-    //   try {
-    //     let response = await this.$axios.post("https://deunionreserve.herokuapp.com/accounts/api/register/",this.signup);
-    //     let user = response.data.user;
-    //         this.$auth.$storage.setLocalStorage("user", user);
-    //         let token = response.data.token;
-    //         this.$auth.$storage.setLocalStorage("jwt", token);
-        
-    //     console.log(response)
-    //     this.$message({
-    //         message: "Account created successfully!",
-    //         type: "success",
-    //         });
-    //         this.$router.push("/profile");
-    //   } catch (err) {
-    //     console.log(err)
-    //     this.$message({
-    //         message: "There was a problem creating your account. Please try again.",
-    //         type: "warning",
-    //         });
-    //   }
-    // }
-     signUp()
-        {
-            
-             this.$axios.post("https://deunionreserve.herokuapp.com/accounts/api/register/",this.signup)
-            .then((res)=> {
-             console.log(res)
-              this.$message({
-             message: "Account created successfully!",
-            type: "success",
-           });
-           this.$auth.loginWith('local', { data: this.signup })
-           
-           this.$router.push("/profile");
-          
-            })
-            .catch((error)=> {
-            console.log(error)
-            this.$message({
-             message: "There was a problem creating your account. Please try again.",
-            type: "warning",
-            });
-            
-            
-            })
-            
-         
-        },
-  }
-    
-}
-
-</script>
-
-
-
-
 <style scoped>
-@font-face {
-    font-family: DMSans;
-    src: url("/font/DMSans-Regular.ttf");
-    }
-    *{
-        font-family: 'DM Sans', sans-serif  !important;
-        
-    }
-    .login-1{
-        background: white;
-        
-    }
-    form{
-        background-color: #FFFFFF !important;
-        border-radius: 24px;
-        margin-top: 0rem;
-    }
-    .login-2{
-        padding:2rem 4rem ;
-        
-    }
-    
-    form h2{
-        color: #0272A2;
-        font-size: 40px;
-        font-weight: bold;
-        margin-bottom: 1rem;
-    }
-    a{
-        text-decoration: none;
-        color: #0272A2;
-    }
-    .form-group input{
-        background: #F9F9FA  !important;
-        border-radius: 8px;
-        padding: 8px 8px;
-        margin-bottom: 1rem;
-        width: 100%;
-    }
-    form label{
-        color: #0272A2;
-        font-weight: bold;
-    }
-    .login{
-        width: 100%;
-        padding: 8px 0;
-        border: none;
-        border-radius: 8px;
-        color: white !important;
-        background-color: #0272A2;
-        margin-top: 1rem;
-    }
-    .login-3{
-        background: url(/img/new/two.svg) center center/cover;
+    .up{
+        background-color: #1B6AE3;
         height: 100vh;
-        margin-top: -1px;
-        
     }
-    .login-3 h2{
-        font-size: 45px;
-        color: #01445F;
-
-    }
-    .nav-item{
-        margin-left: 3rem;
-    }
-    .active{
-        border-bottom: 1px solid #dee2e6  !important ;
-    }
-    a{
-        color: black;
-    }
-    .small{
-      display: none;
-    }
-    .nav1{
+    .btn-primary{
+        background-color: #1B6AE3 !important;
         margin-top: 1rem;
+        width: 100%;
+    }
+    .up1{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    label{
+        display: block;
+    }
     
-    }
-
-
-    @media(max-width: 576px){
-        form h2{
-        color: white;
-        font-size: 35px;
-        font-weight: bold;
-        margin-bottom: 2rem;
-    }
-        .login-1{
-        padding-top: 10px;
-        background: #F4FAFD;
-        height: auto;
-    }
-    form{
-        background-color: #FFFFFF !important;
+    .up31{
+        background: white;
+        margin-top: 5.5rem;
+        padding-top: 2rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        padding-bottom: 15rem;
+        margin-right: 2rem;
+        margin-left: 2rem;
         border-radius: 10px;
-        margin-top: 2rem;
     }
-    form label{
+    .up31 h1{
+        color: #1B6AE3;
+    }
+    .up321{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 1rem;
+    }
+    .up21{
+        margin-top: 5rem;
+        margin-bottom: 5rem;
+        margin-left: 2rem;
+        margin-left: 2rem;
+        text-align: center;
+    }
+    .up21 h1{
         color: white;
-        font-weight: bold;
+        font-size: 70px;
+        margin-top: -7rem;
     }
-    .login-2{
-        padding:3rem 1rem ;
-        background: url(/img/new/two.svg) center center/cover;
-        height: auto;
-    }
-    .login{
-        width: 100%;
-        padding: 8px 0;
-        border: none;
-        border-radius: 8px;
-        color: white !important;
-        background-color:black;
-        margin-top: 1rem;
-    }
-    .login-3{
-        display: none;
-        
-    }
-    .login-3 h2{
-        font-size: 45px;
+    .up21 p{
         color: white;
+        margin-left: 5rem;
+        margin-right: 5rem;
+    }
+    .up2 img{
+        width: 50%;
+    }
 
-    }
-    input{
-        background: #F9F9FA;
-        border-radius: 8px;
-        padding: 8px 8px;
-        margin-bottom: 1.5rem;
-        width: 100%;
-    }
-    .grid{
+
+    @media(max-width:567px){
+        .up1{
         display: grid;
         grid-template-columns: 1fr;
     }
-    .small{
-      display:block
+        .up321{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 1rem;
     }
-    .big{
-      display:none;
+        .up31{
+        background: white;
+        margin-top: 3rem;
+        padding: 3rem 2rem;
+        margin-right: 10px;
+        margin-left: 10px;
+        border-radius: 10px;
     }
-    .active{
-        border-bottom: none  !important ;
-    }
-    .nav-item{
-        margin-left: 0rem;
-        font-size: 17px;
-    }
-    .nav-link{
-      color: black  !important;
-    }
-    .navbar-light .navbar-toggler {
-    color: rgba(0, 0, 0, 0.5);
-    border-color: rgba(0, 0, 0, 0.1);
-    outline: none;
-}
-    .for{
+    .up21{
+        margin-top: 5rem;
+        margin-bottom: 5rem;
+        margin-left: 10px;
+        margin-left: 10px;
         text-align: center;
-        margin-top: 1rem;
-        color: white;
     }
-    .for a{
+    .up21 p{
         color: white;
+        margin-left: 10px;
+        margin-right: 10px;
     }
-    .form-group input{
-        background: #F9F9FA  !important;
-        border-radius: 8px;
-        padding: 8px 8px;
-        margin-bottom: 1rem;
-        width: 100%;
+    .up2 img{
+        width: 90%;
+    }
+    .up21 h1{
+        color: white;
+        font-size: 70px;
+        margin-top: -3rem;
+    }
+    .up{
+        background-color: #1B6AE3;
+        height: 200vh;
+    }
+    input{
+        margin-bottom: 0.5rem;
+    }
+    }
+
+
+    @media(min-width:568px) and (max-width:768px){
+        .up2 img{
+        width: 90%;
+    }
+        .up321{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 1rem;
+    }
+    }
+
+    @media(min-width:769px) and (max-width:1200px){
+        .up2 img{
+        width: 80%;
+    }
+        .up31{
+        background: white;
+        margin-top: 3rem;
+        padding: 5rem 2rem;
+        margin-right: 2rem;
+        margin-left: 2rem;
+        border-radius: 10px;
     }
     }
 </style>
